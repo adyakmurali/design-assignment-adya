@@ -1,6 +1,6 @@
 Implementation of Block RAM Using Verilog
 
-2<img width="782" height="491" alt="image" src="https://github.com/user-attachments/assets/160b277e-bde6-40c8-99c8-cc719307090a" />
+<img width="782" height="491" alt="image" src="https://github.com/user-attachments/assets/160b277e-bde6-40c8-99c8-cc719307090a" />
 
 implemented a Block RAM (BRAM) module in Verilog for performing controlled write and read operations using separate write and read addresses.
 
