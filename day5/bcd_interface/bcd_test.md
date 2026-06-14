@@ -20,12 +20,12 @@ bcd_adder.v
 bcd_test.sv
 
 Inputs:
-A [3:0]
+A [3:0],
 B [3:0]
 Cin
 
 Outputs:
-S0, S1, S2, S3
+S0, S1, S2, S3,
 Cout
 
 Procedure:
