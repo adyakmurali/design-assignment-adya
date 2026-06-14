@@ -11,18 +11,27 @@ In this implementation, a behavioural memory array is used to represent Block RA
 
 Module Description:
 The Block RAM module contains memory organised as 256 locations with each location storing 8 bits of data.
+
 Inputs:
 clk : Clock signal
+
 arstn : Asynchronous active-low reset
+
 wr_enb : Write enable control signal
+
 wr_address [7:0] : Address used during write operation
+
 read_address [7:0] : Address used during read operation
+
 data_in [7:0] : Input data to be stored
+
 Output:
 dout [7:0] : Output data during read operation
 
 Memory Depth = 256 locations
+
 Data Width = 8 bits
+
 Total Storage Capacity = 256 × 8 bits
 
 Data Flow:
