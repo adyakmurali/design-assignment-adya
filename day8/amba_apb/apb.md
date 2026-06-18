@@ -79,3 +79,6 @@ Proper verification environment functionality
 
 Conclusion
 The AMBA APB Slave module was successfully designed and verified using SystemVerilog. The APB protocol transactions were implemented through a finite state machine and validated using a class-based verification environment. The simulation results confirmed correct communication between the APB master behavior and slave design with all transactions passing successfully.
+
+<img width="1600" height="976" alt="image" src="https://github.com/user-attachments/assets/a5a4dd76-f10e-454a-b252-93bb3e493991" />
+
