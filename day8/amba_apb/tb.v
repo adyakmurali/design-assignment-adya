@@ -1,41 +1,30 @@
 `timescale 1ns/1ps
 // INTERFACE
-
 interface apb_if(input bit PCLK);
-
-    logic PRESETn;
-
-    logic PSEL;
-    logic PENABLE;
-    logic PWRITE;
-
-    logic [7:0]  PADDR;
-    logic [31:0] PWDATA;
-
-    logic [31:0] PRDATA;
-    logic PREADY;
-    logic PSLVERR;
+logic PRESETn;
+logic PSEL;
+logic PENABLE;
+logic PWRITE;
+logic [7:0]  PADDR;
+logic [31:0] PWDATA;
+logic [31:0] PRDATA;
+logic PREADY;
+logic PSLVERR;
 
 endinterface
-
-
 
 // TRANSACTION
 
 class apb_transaction;
+rand bit [7:0] addr;
+rand bit [31:0] wdata;
+rand bit write;
+bit [31:0] rdata;
+function void display(string tag="TRANS");
 
-    rand bit [7:0] addr;
-    rand bit [31:0] wdata;
-    rand bit write;
+$display("[%s] addr=%0h write=%0b wdata=%0h rdata=%0h",tag, addr, write, wdata, rdata);
 
-    bit [31:0] rdata;
-
-    function void display(string tag="TRANS");
-
-        $display("[%s] addr=%0h write=%0b wdata=%0h rdata=%0h",
-                  tag, addr, write, wdata, rdata);
-
-    endfunction
+endfunction
 
 endclass
 
@@ -43,48 +32,40 @@ endclass
 
 class generator;
 
-    mailbox #(apb_transaction) gen2drv;
+mailbox #(apb_transaction) gen2drv;
+int count;
 
-    int count;
+function new(mailbox #(apb_transaction) gen2drv);
+this.gen2drv = gen2drv;
+endfunction
+task run();
+apb_transaction wr;
+apb_transaction rd;
+repeat(count)
+begin
 
-    function new(mailbox #(apb_transaction) gen2drv);
+// WRITE
 
-    this.gen2drv = gen2drv;
+wr = new();
 
-    endfunction
+wr.addr  = $urandom_range(0,255);
+wr.wdata = $urandom;
+wr.write = 1;
 
-    task run();
+gen2drv.put(wr);
+wr.display("GEN_WRITE");
+// READ SAME ADDRESS
 
-   apb_transaction wr;
-   apb_transaction rd;
+rd = new();
+rd.addr  = wr.addr;
+rd.write = 0;
 
-   repeat(count)
-   begin
+gen2drv.put(rd);
 
-    // WRITE
+rd.display("GEN_READ");
 
-     wr = new();
-
-     wr.addr  = $urandom_range(0,255);
-    wr.wdata = $urandom;
-     wr.write = 1;
-
-     gen2drv.put(wr);
-     wr.display("GEN_WRITE");
-
-    // READ SAME ADDRESS
-
-      rd = new();
-
-     rd.addr  = wr.addr;
-     rd.write = 0;
-
-     gen2drv.put(rd);
-
-   rd.display("GEN_READ");
-
- end
- endtask
+end
+endtask
 
 endclass
 
