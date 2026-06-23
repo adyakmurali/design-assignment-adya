@@ -65,6 +65,11 @@ Scalable convolution and fully connected layers
 SystemVerilog-based verification environment
 MNIST dataset-based simulation testing
 
+Simulation Result
+<img width="1600" height="1019" alt="image" src="https://github.com/user-attachments/assets/dccb7e8f-4202-4bcb-92fe-cd750ef5a485" />
+
+<img width="1600" height="1017" alt="image" src="https://github.com/user-attachments/assets/f87e8fdf-a496-471c-a73f-7d4c011f0b27" />
+
 Result Summary
 
 The CNN accelerator successfully performs digit classification in simulation. The design demonstrates correct functionality across all pipeline stages and achieves accurate inference results for MNIST test samples.
@@ -72,3 +77,4 @@ The CNN accelerator successfully performs digit classification in simulation. Th
 Conclusion
 
 This project demonstrates a complete hardware-based CNN inference system implemented in SystemVerilog. The design integrates all major deep learning operations into a structured hardware pipeline and validates functionality using a robust verification environment. The system is suitable for FPGA-based deployment and can be extended for larger neural network architectures.
+
