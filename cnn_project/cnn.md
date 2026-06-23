@@ -66,9 +66,14 @@ SystemVerilog-based verification environment
 MNIST dataset-based simulation testing
 
 Simulation Result
+
 <img width="1600" height="1019" alt="image" src="https://github.com/user-attachments/assets/dccb7e8f-4202-4bcb-92fe-cd750ef5a485" />
 
 <img width="1600" height="1017" alt="image" src="https://github.com/user-attachments/assets/f87e8fdf-a496-471c-a73f-7d4c011f0b27" />
+
+Testcase Result
+
+<img width="1600" height="903" alt="image" src="https://github.com/user-attachments/assets/68150e68-2369-4d00-8df3-a92c872e2fb9" />
 
 Result Summary
 
