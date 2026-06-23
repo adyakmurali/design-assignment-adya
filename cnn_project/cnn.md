@@ -16,25 +16,15 @@ Image Storage → Pixel Streaming → Convolution → ReLU → Max Pooling → R
 Each stage is implemented as an independent hardware module and coordinated through a central control mechanism.
 
 Image Memory Unit : Stores input image data and provides access to the processing pipeline.
-
 Pixel Streaming Module : Reads image data sequentially and converts it into a streaming format suitable for CNN processing.
-
- Convolution Engine : Performs feature extraction using kernel-based multiply-accumulate operations.
-
+Convolution Engine : Performs feature extraction using kernel-based multiply-accumulate operations.
 Convolution Block : Acts as a control wrapper around convolution computation and memory access.
-
 Kernel Storage : Holds trained weights and bias values used by convolution layers.
-
 Runtime Parameter Loader : Enables dynamic loading of trained CNN weights into hardware memory during simulation or execution.
-
 Activation Layer (ReLU) : Applies non-linearity by filtering negative values and preserving positive activations.
-
 Pooling Unit : Reduces spatial dimensions of feature maps while preserving dominant features using max selection.
-
 Flatten Module : Transforms 2D feature maps into a 1D vector representation for dense layers.
-
 Fully Connected Layer : Performs classification using weighted sum operations and produces final output scores.
-
 Control and Status Unit : Manages pipeline execution stages and ensures correct sequencing of operations across the CNN flow.
 
 Design Architecture
